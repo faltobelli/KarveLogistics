@@ -22,7 +22,7 @@ public class AccessController {
     @GetMapping("/get/location")
     public ResponseEntity<List<LocationViewModel>> getLoc(@Valid @RequestBody List<LocationViewModel> locations) {
         // TODO: Implement Service and functionality
-        return ResponseEntity<List<LocationViewModel>>(locations, HttpStatus.OK);
+        return new ResponseEntity<List<LocationViewModel>>(locations, HttpStatus.OK);
     }
 
 }
