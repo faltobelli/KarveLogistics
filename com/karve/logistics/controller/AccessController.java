@@ -36,7 +36,13 @@ public class AccessController {
     @GetMapping("/mdticket")
     public String mobileDelieveryTicket(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", "3");
-        return "mobileDeliveryFieldTicket";
+        return "mdFieldTicket";
+    }
+
+    @GetMapping("/mdroutes")
+    public String mobileDelieveryTicketDetail(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", "3");
+        return "mdFieldTicketDetail";
     }
 
     // don't know we need this
