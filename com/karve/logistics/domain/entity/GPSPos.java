@@ -4,10 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
-@Table(name = "fieldticket")
+@Table(name = "gpspos")
 public class GPSPos implements Serializable {
 
     @Id
@@ -16,8 +15,5 @@ public class GPSPos implements Serializable {
     private Long latitude;
 
     private Long longitude;
-
-    @
-    private Date;
 
 }

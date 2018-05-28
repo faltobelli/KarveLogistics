@@ -1,7 +1,6 @@
 package com.karve.logistics.domain.entity;
 
-import com.sun.javafx.beans.IDProperty;
-//import org.hibernate.annotations.Table;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,6 +17,9 @@ public class FieldTicket implements Serializable {
 
     private String ticketName;
 
+    @CreatedDate
+    private Date creationDate;
+
     private Date estDileveryTime;
 
     private Date actualDileveryTime;
@@ -26,11 +28,7 @@ public class FieldTicket implements Serializable {
 
     private String product;
 
-    // TODO: Use many to one relation with CLIENT entity
-    private String client;
-    private String siteContact;
-    private String receptionType;
-    private String siteAddress;
+    private Location clientLocation;
 
     private String price;
 
