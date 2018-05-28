@@ -4,11 +4,9 @@ package com.karve.logistics.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RequestMapping("/md")
 @Controller
 public class MobileDeliveryController { // MobileTrucker??
@@ -20,8 +18,7 @@ public class MobileDeliveryController { // MobileTrucker??
 
     // **********************************
     // Field Ticket
-
-    @GetMapping("/fieldticketDetail")
+    @RequestMapping({"", "/", "/fieldticketDetail"})
     public String FieldTicketDetail(@RequestParam(name = "userId", required = true) int userId,
                                     @RequestParam(name = "fieldTicketNum", required = true, defaultValue = "-1") int fieldTicketNum,
                                     Model model) {
@@ -30,7 +27,7 @@ public class MobileDeliveryController { // MobileTrucker??
         return "mdFieldTicketDetail";
     }
 
-    @GetMapping("/fieldtickets")
+    @RequestMapping({"", "/", "/fieldtickets"})
     public String mobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId,
                                         Model model) {
         String name = "Billy Bob";
@@ -41,15 +38,14 @@ public class MobileDeliveryController { // MobileTrucker??
 
     // **********************************
     // Routes for the day (Searchable)
-
-    @GetMapping("/mdroutes")
+    @RequestMapping({"", "/", "/routes"})
     public String mdRoutes(@RequestParam(name = "userId", required = true) int userId,
                            Model model) {
         model.addAttribute("userId", userId);
         return "mdRoutes";
     }
 
-    @GetMapping("/mdroutedetail")
+    @GetMapping("/routedetail")
     public String mdRoutesDetail(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="routeId", required=true) int routeId,
                                  Model model) {
@@ -60,8 +56,7 @@ public class MobileDeliveryController { // MobileTrucker??
 
     // **********************************
     // GPS Routing
-
-    @GetMapping("/mdmaproute")
+    @RequestMapping({"", "/", "/maproute"})
     public String mdMapRoute(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="routeId", required=true) int routeId,
                                  Model model) {
