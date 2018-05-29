@@ -1,8 +1,6 @@
 package com.karve.logistics.domain.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -10,6 +8,7 @@ import java.io.Serializable;
 public class GPSPos implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long gpsPosId;
 
     private Long latitude;

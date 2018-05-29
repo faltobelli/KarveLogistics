@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EndCustomerController {
 
     // Driver Tracking (GPS)
-    @RequestMapping({"", "/", "/drivertracker"})
+    @GetMapping("/drivertracker")
     public String DriverTracking(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="locationId", required=true) int locationId,
                                  Model model) {
@@ -22,7 +22,7 @@ public class EndCustomerController {
     }
 
     // Searchable Routes for the DAy
-    @RequestMapping({"", "/", "/searchableRoutes"})
+    @GetMapping("/searchableRoutes")
     public String searchableRoutes(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="locationId", required=true) int locationId,
                                  Model model) {
@@ -32,7 +32,7 @@ public class EndCustomerController {
     }
 
     // Field Tickets
-    @RequestMapping({"", "/", "/fieldticket"})
+    @GetMapping("/fieldticket")
     public String fieldTicket(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="locationId", required=true) int locationId,
                                  Model model) {

@@ -14,7 +14,7 @@ public class MobileRecieverController {
 
     // **********************************
     // Next Delievery Truck ETA
-    @RequestMapping({"", "/", "/nextdelivery"})
+    @GetMapping("/nextdelivery")
     public String mrNextDeliveryETA(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="locationId", required=true) int locationId,
                                  Model model) {
@@ -25,7 +25,7 @@ public class MobileRecieverController {
 
     // **********************************
     // Trucks Onsite
-    @RequestMapping({"", "/", "/trucksonsite"})
+    @GetMapping("/trucksonsite")
     public String mrTrucksOnsite(@RequestParam(name = "userId", required = true) int userId,
                                     @RequestParam(name="locationId", required=true) int locationId,
                                     Model model) {
@@ -36,7 +36,7 @@ public class MobileRecieverController {
 
     // **********************************
     // Field Ticket Authorization
-    @RequestMapping({"", "/", "/fieldtickeauth"})
+    @GetMapping("/fieldtickeauth")
     public String mrfieldTicketAuth(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="locationId", required=true) int locationId,
                                  Model model) {

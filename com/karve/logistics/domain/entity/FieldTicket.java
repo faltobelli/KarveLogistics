@@ -2,9 +2,7 @@ package com.karve.logistics.domain.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,6 +11,7 @@ import java.util.Date;
 public class FieldTicket implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ticketId;
 
     private String ticketName;

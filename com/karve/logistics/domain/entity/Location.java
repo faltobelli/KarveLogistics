@@ -8,11 +8,12 @@ import java.io.Serializable;
 public class Location implements Serializable {
 
     @Id
+    @GeneratedValue
     @Column(name = "unitId", nullable = false)
     private Long unitId;
 
     @OneToOne
-    @JoinColumn(name = "gpsPosId", table = "GPSPos")
+    @MapsId
     private GPSPos gpsPos;
 
 }

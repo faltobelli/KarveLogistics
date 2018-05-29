@@ -18,7 +18,7 @@ public class MobileDeliveryController { // MobileTrucker??
 
     // **********************************
     // Field Ticket
-    @RequestMapping({"", "/", "/fieldticketDetail"})
+    @GetMapping("/fieldticketDetail")
     public String FieldTicketDetail(@RequestParam(name = "userId", required = true) int userId,
                                     @RequestParam(name = "fieldTicketNum", required = true, defaultValue = "-1") int fieldTicketNum,
                                     Model model) {
@@ -27,7 +27,7 @@ public class MobileDeliveryController { // MobileTrucker??
         return "mdFieldTicketDetail";
     }
 
-    @RequestMapping({"", "/", "/fieldtickets"})
+    @GetMapping("/fieldtickets")
     public String mobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId,
                                         Model model) {
         String name = "Billy Bob";
@@ -38,7 +38,7 @@ public class MobileDeliveryController { // MobileTrucker??
 
     // **********************************
     // Routes for the day (Searchable)
-    @RequestMapping({"", "/", "/routes"})
+    @GetMapping("/routes")
     public String mdRoutes(@RequestParam(name = "userId", required = true) int userId,
                            Model model) {
         model.addAttribute("userId", userId);
@@ -56,7 +56,7 @@ public class MobileDeliveryController { // MobileTrucker??
 
     // **********************************
     // GPS Routing
-    @RequestMapping({"", "/", "/maproute"})
+    @GetMapping("/maproute")
     public String mdMapRoute(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="routeId", required=true) int routeId,
                                  Model model) {
