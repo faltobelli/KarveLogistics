@@ -1,7 +1,8 @@
 package com.karve.logistics.controller;
 
 
-import org.springframework.http.ResponseEntity;
+import com.karve.logistics.service.mobileDelivery.face.MobileDeliveryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MobileDeliveryController { // MobileTrucker??
 
+    private MobileDeliveryService mobileDeliveryService;
+
+    @Autowired
+    public MobileDeliveryController(MobileDeliveryService mobileDeliveryService) {
+        this.mobileDeliveryService = mobileDeliveryService;
+    }
+
     @GetMapping("/hello")
     public String hello() {
         return "hello";
@@ -19,16 +27,18 @@ public class MobileDeliveryController { // MobileTrucker??
     // **********************************
     // Field Ticket
     @GetMapping("/fieldticketDetail")
-    public String FieldTicketDetail(@RequestParam(name = "userId", required = true) int userId,
+    public String getFieldTicketDetail(@RequestParam(name = "userId", required = true) int userId,
                                     @RequestParam(name = "fieldTicketNum", required = true, defaultValue = "-1") int fieldTicketNum,
                                     Model model) {
         model.addAttribute("userId", userId);
         model.addAttribute("fieldTicketNum", fieldTicketNum);
+        model.addAttribute(mobileDeliveryService.getFieldTicketDetail(fieldTicketNum));
+
         return "mdFieldTicketDetail";
     }
 
     @GetMapping("/fieldtickets")
-    public String mobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId,
+    public String getMobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId,
                                         Model model) {
         String name = "Billy Bob";
         model.addAttribute("userId", userId);
@@ -39,14 +49,14 @@ public class MobileDeliveryController { // MobileTrucker??
     // **********************************
     // Routes for the day (Searchable)
     @GetMapping("/routes")
-    public String mdRoutes(@RequestParam(name = "userId", required = true) int userId,
+    public String getRoutes(@RequestParam(name = "userId", required = true) int userId,
                            Model model) {
         model.addAttribute("userId", userId);
         return "mdRoutes";
     }
 
     @GetMapping("/routedetail")
-    public String mdRoutesDetail(@RequestParam(name = "userId", required = true) int userId,
+    public String getRoutesDetail(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="routeId", required=true) int routeId,
                                  Model model) {
         model.addAttribute("userId", userId);
@@ -57,7 +67,7 @@ public class MobileDeliveryController { // MobileTrucker??
     // **********************************
     // GPS Routing
     @GetMapping("/maproute")
-    public String mdMapRoute(@RequestParam(name = "userId", required = true) int userId,
+    public String getMapRoute(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="routeId", required=true) int routeId,
                                  Model model) {
         model.addAttribute("userId", userId);

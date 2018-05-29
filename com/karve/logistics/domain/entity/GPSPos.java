@@ -15,4 +15,27 @@ public class GPSPos implements Serializable {
 
     private Long longitude;
 
+    public Long getGpsPosId() {
+        return gpsPosId;
+    }
+
+    public void setGpsPosId(Long gpsPosId) {
+        this.gpsPosId = gpsPosId;
+    }
+
+    public Long getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Long latitude) {
+        this.latitude = latitude;
+    }
+
+    public Long getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Long longitude) {
+        this.longitude = longitude;
+    }
 }
