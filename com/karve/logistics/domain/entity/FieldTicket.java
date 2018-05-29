@@ -1,13 +1,18 @@
 package com.karve.logistics.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
-
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "fieldticket")
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 public class FieldTicket implements Serializable {
 
     @Id
@@ -17,10 +22,13 @@ public class FieldTicket implements Serializable {
     private String ticketName;
 
     @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date estDileveryTime;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date actualDileveryTime;
 
     private String product;
