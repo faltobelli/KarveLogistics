@@ -13,4 +13,6 @@ public class ServiceType implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+
 }

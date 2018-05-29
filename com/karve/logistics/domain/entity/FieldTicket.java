@@ -23,14 +23,15 @@ public class FieldTicket implements Serializable {
 
     private Date actualDileveryTime;
 
-    private GPSPos gpsPos;
-
     private String product;
-
-    private Location clientLocation;
 
     private String price;
 
-    // TODO: Use many to one relation with ServiceType entity
-    private String serviceType;
+    @ManyToOne
+    @MapsId
+    private Client client;
+
+    @ManyToOne
+    @MapsId
+    private ServiceType serviceType;
 }

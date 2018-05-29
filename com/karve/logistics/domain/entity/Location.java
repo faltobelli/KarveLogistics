@@ -9,11 +9,16 @@ public class Location implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "unitId", nullable = false)
-    private Long unitId;
+    @Column(name = "locationid", nullable = false)
+    private Long locationid;
 
     @OneToOne
     @MapsId
     private GPSPos gpsPos;
 
+    private String address;
+    private String city;
+    private String zip;
+    private String state;
+    private String phone;
 }

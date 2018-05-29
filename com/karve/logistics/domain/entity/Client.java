@@ -12,6 +12,8 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @OneToOne
+    @MapsId
     private Location location;
 
 }
