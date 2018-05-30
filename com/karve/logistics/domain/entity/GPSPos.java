@@ -2,6 +2,7 @@ package com.karve.logistics.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+/*
 
 @Entity
 @Table(name = "gpspos")
@@ -39,3 +40,4 @@ public class GPSPos implements Serializable {
         this.longitude = longitude;
     }
 }
+*/

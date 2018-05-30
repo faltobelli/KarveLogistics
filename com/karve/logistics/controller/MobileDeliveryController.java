@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("/md")
 @Controller
-public class MobileDeliveryController { // MobileTrucker??
+public class MobileDeliveryController {
 
     private MobileDeliveryService mobileDeliveryService;
 

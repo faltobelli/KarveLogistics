@@ -12,9 +12,11 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+/*
     @OneToOne
     @MapsId
     private Location location;
+*/
 
     private String name;
 
@@ -28,6 +30,7 @@ public class Client implements Serializable {
         this.id = id;
     }
 
+/*
     public Location getLocation() {
         return location;
     }
@@ -35,6 +38,7 @@ public class Client implements Serializable {
     public void setLocation(Location location) {
         this.location = location;
     }
+*/
 
     public String getName() {
         return name;

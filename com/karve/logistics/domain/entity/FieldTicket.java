@@ -1,18 +1,13 @@
 package com.karve.logistics.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "fieldticket")
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
 public class FieldTicket implements Serializable {
 
     @Id
@@ -36,12 +31,14 @@ public class FieldTicket implements Serializable {
     private String price;
 
     @ManyToOne
-    @MapsId
+    @JoinColumn(name = "id")
     private Client client;
 
+/*
     @ManyToOne
-    @MapsId
+    @JoinColumn(name = "id")
     private ServiceType serviceType;
+*/
 
     public Long getTicketId() {
         return ticketId;
@@ -107,6 +104,7 @@ public class FieldTicket implements Serializable {
         this.client = client;
     }
 
+/*
     public ServiceType getServiceType() {
         return serviceType;
     }
@@ -114,4 +112,6 @@ public class FieldTicket implements Serializable {
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
     }
+*/
+
 }
