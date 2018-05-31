@@ -2,7 +2,6 @@ package com.karve.logistics.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-/*
 
 @Entity
 @Table(name="location")
@@ -11,11 +10,11 @@ public class Location implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "locationid", nullable = false)
-    private Long locationid;
+    private Long id;
 
-    @OneToOne
-    @MapsId
-    private GPSPos gpsPos;
+    private Long latitude;
+
+    private Long longitude;
 
     private String address;
     private String city;
@@ -23,20 +22,28 @@ public class Location implements Serializable {
     private String state;
     private String phone;
 
-    public Long getLocationid() {
-        return locationid;
+    public Long getId() {
+        return id;
     }
 
-    public void setLocationid(Long locationid) {
-        this.locationid = locationid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public GPSPos getGpsPos() {
-        return gpsPos;
+    public Long getLatitude() {
+        return latitude;
     }
 
-    public void setGpsPos(GPSPos gpsPos) {
-        this.gpsPos = gpsPos;
+    public void setLatitude(Long latitude) {
+        this.latitude = latitude;
+    }
+
+    public Long getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Long longitude) {
+        this.longitude = longitude;
     }
 
     public String getAddress() {
@@ -79,4 +86,4 @@ public class Location implements Serializable {
         this.phone = phone;
     }
 }
-*/
+

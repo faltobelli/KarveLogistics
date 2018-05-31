@@ -42,16 +42,22 @@ public class MobileDeliveryController {
                                         Model model) {
         String name = "Billy Bob";
         model.addAttribute("userId", userId);
+
+        model.addAttribute(mobileDeliveryService.getFieldTickets(Long.valueOf(userId)));
+
         return "mdFieldTicket";
     }
 
 
     // **********************************
-    // Routes for the day (Searchable)
+    // Route for the day (Searchable)
     @GetMapping("/routes")
     public String getRoutes(@RequestParam(name = "userId", required = true) int userId,
                            Model model) {
         model.addAttribute("userId", userId);
+
+        model.addAttribute(mobileDeliveryService.getRoutes(Long.valueOf(userId)));
+
         return "mdRoutes";
     }
 
@@ -61,6 +67,9 @@ public class MobileDeliveryController {
                                  Model model) {
         model.addAttribute("userId", userId);
         model.addAttribute("routeId", routeId);
+
+        model.addAttribute(mobileDeliveryService.getRoute(Long.valueOf(routeId)));
+
         return "mdRouteDetail";
     }
 
@@ -72,6 +81,9 @@ public class MobileDeliveryController {
                                  Model model) {
         model.addAttribute("userId", userId);
         model.addAttribute("routeId", routeId);
+
+        model.addAttribute(mobileDeliveryService.getRoute(Long.valueOf(routeId)));
+
         return "mdMapRoute";
     }
 }

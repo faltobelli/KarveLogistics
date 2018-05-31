@@ -21,7 +21,7 @@ public class EndCustomerController {
         return "ecDriverTracker";
     }
 
-    // Searchable Routes for the DAy
+    // Searchable Route for the DAy
     @GetMapping("/searchableRoutes")
     public String searchableRoutes(@RequestParam(name = "userId", required = true) int userId,
                                  @RequestParam(name="locationId", required=true) int locationId,

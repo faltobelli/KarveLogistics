@@ -22,7 +22,7 @@ public class TruckingLogisticsController {
         return "lgDriverTracking";
     }
 
-    // Searchable Routes for the day
+    // Searchable Route for the day
     @GetMapping("/searchableroutes")
     public String searchableRoutes(@RequestParam(name = "userId", required = true) int userId,
                               @RequestParam(name="locationId", required=true) int locationId,
