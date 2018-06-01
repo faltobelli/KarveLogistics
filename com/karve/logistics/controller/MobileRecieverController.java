@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/reciever")
+@RequestMapping("/mr")
 @RestController
 public class MobileRecieverController {
+
+    @GetMapping("/")
+    public String index() {
+        return "hello";
+    }
 
     // **********************************
     // Next Delievery Truck ETA

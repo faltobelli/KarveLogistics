@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/api")
+//@RequestMapping("/api")
 @Controller
 public class AccessController {
 
@@ -24,7 +24,7 @@ public class AccessController {
     @RequestMapping("/")
     public String welcome(Map<String, Object> model) {
         model.put("message", this.message);
-        return "welcome";
+        return "default";
     }
 
     @GetMapping("/greeting")

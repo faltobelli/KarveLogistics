@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/logistics")
+@RequestMapping("/lg")
 @Controller
 public class TruckingLogisticsController {
+
+    @GetMapping("/")
+    public String index() {
+        return "hello";
+    }
 
     // Driver Tracking (GPS)
     @GetMapping("/drivertracking")

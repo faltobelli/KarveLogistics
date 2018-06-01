@@ -7,9 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/customer")
+@RequestMapping("/ec")
 @RestController
 public class EndCustomerController {
+
+
+    @GetMapping("/")
+    public String index() {
+        return "hello";
+    }
 
     // Driver Tracking (GPS)
     @GetMapping("/drivertracker")

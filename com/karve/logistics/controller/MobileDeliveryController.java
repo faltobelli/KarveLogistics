@@ -19,7 +19,7 @@ public class MobileDeliveryController {
         this.mobileDeliveryService = mobileDeliveryService;
     }
 
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String hello() {
         return "hello";
     }
@@ -41,9 +41,10 @@ public class MobileDeliveryController {
     public String getMobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId,
                                         Model model) {
         String name = "Billy Bob";
+        model.addAttribute("name", name);
         model.addAttribute("userId", userId);
 
-        model.addAttribute(mobileDeliveryService.getFieldTickets(Long.valueOf(userId)));
+        model.addAttribute("tickets", mobileDeliveryService.getFieldTickets(new Long(userId)));
 
         return "mdFieldTicket";
     }
@@ -56,7 +57,7 @@ public class MobileDeliveryController {
                            Model model) {
         model.addAttribute("userId", userId);
 
-        model.addAttribute(mobileDeliveryService.getRoutes(Long.valueOf(userId)));
+        model.addAttribute(mobileDeliveryService.getRoutes(new Long(userId)));
 
         return "mdRoutes";
     }
@@ -68,7 +69,7 @@ public class MobileDeliveryController {
         model.addAttribute("userId", userId);
         model.addAttribute("routeId", routeId);
 
-        model.addAttribute(mobileDeliveryService.getRoute(Long.valueOf(routeId)));
+        model.addAttribute(mobileDeliveryService.getRoute(new Long(routeId)));
 
         return "mdRouteDetail";
     }
@@ -82,7 +83,7 @@ public class MobileDeliveryController {
         model.addAttribute("userId", userId);
         model.addAttribute("routeId", routeId);
 
-        model.addAttribute(mobileDeliveryService.getRoute(Long.valueOf(routeId)));
+        model.addAttribute(mobileDeliveryService.getRoute(new Long(routeId)));
 
         return "mdMapRoute";
     }

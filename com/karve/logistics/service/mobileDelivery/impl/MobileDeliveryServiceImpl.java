@@ -39,6 +39,19 @@ public class MobileDeliveryServiceImpl implements MobileDeliveryService {
     public List<FieldTicket> getFieldTickets(Long userId) {
         List<FieldTicket> fieldTickets = new ArrayList<>();
 
+        FieldTicket fieldTicket = new FieldTicket();
+        fieldTicket.setCreationDate(new Date()); fieldTicket.setTicketId(11L); fieldTicket.setTicketName("Exxon");
+        fieldTickets.add(fieldTicket);
+        fieldTicket = new FieldTicket();
+        fieldTicket.setCreationDate(new Date()); fieldTicket.setTicketId(12L); fieldTicket.setTicketName("Challenger");
+        fieldTickets.add(fieldTicket);
+        fieldTicket = new FieldTicket();
+        fieldTicket.setCreationDate(new Date()); fieldTicket.setTicketId(13L); fieldTicket.setTicketName("Bubas");
+        fieldTickets.add(fieldTicket);
+        fieldTicket = new FieldTicket();
+        fieldTicket.setCreationDate(new Date()); fieldTicket.setTicketId(14L); fieldTicket.setTicketName("Apache");
+        fieldTickets.add(fieldTicket);
+
         return fieldTickets;
     }
 
