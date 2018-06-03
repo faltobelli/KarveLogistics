@@ -8,37 +8,30 @@ import java.io.Serializable;
 public class Client implements Serializable {
 
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-/*
-    @OneToOne
-    @MapsId
-    private Location location;
-*/
+    private Long clientId;
 
     private String name;
 
     private String description;
 
-    public Long getId() {
-        return id;
+    private Long latitude;
+
+    private Long longitude;
+
+    private String address;
+    private String city;
+    private String zip;
+    private String state;
+    private String phone;
+
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
-
-/*
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-*/
 
     public String getName() {
         return name;
@@ -54,5 +47,61 @@ public class Client implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Long latitude) {
+        this.latitude = latitude;
+    }
+
+    public Long getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Long longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

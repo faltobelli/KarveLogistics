@@ -24,14 +24,14 @@ public class FieldTicket implements Serializable {
     private Date estDileveryTime;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date actualDileveryTime;
+    private Date actualDeleveryTime;
 
     private String product;
 
     private String price;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "clientId")
     private Client client;
 
 /*
@@ -72,12 +72,12 @@ public class FieldTicket implements Serializable {
         this.estDileveryTime = estDileveryTime;
     }
 
-    public Date getActualDileveryTime() {
-        return actualDileveryTime;
+    public Date getActualDeleveryTime() {
+        return actualDeleveryTime;
     }
 
-    public void setActualDileveryTime(Date actualDileveryTime) {
-        this.actualDileveryTime = actualDileveryTime;
+    public void setActualDeleveryTime(Date actualDeleveryTime) {
+        this.actualDeleveryTime = actualDeleveryTime;
     }
 
     public String getProduct() {

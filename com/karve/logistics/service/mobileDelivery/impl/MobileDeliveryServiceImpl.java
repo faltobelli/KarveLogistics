@@ -29,11 +29,11 @@ public class MobileDeliveryServiceImpl implements MobileDeliveryService {
     @Override
     public FieldTicket getFieldTicketDetail(int fieldTicketNum) {
         FieldTicket fieldTicket = new FieldTicket();
-        fieldTicket.setActualDileveryTime(new Date());
+        fieldTicket.setActualDeleveryTime(new Date());
 
         Client client = new Client();
         client.setDescription("this is a real client");
-        client.setId(1L); client.setName("Challenger");
+        client.setClientId(1L); client.setName("Challenger");
         fieldTicket.setClient(client);
 
         fieldTicket.setCreationDate(new Date());
