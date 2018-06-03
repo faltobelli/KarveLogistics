@@ -14,10 +14,16 @@ import java.util.List;
 @Service
 public class MobileDeliveryServiceImpl implements MobileDeliveryService {
 
+    // mocks
+    private List<FieldTicket> fieldTickets;
+
     private FieldTicketRepository fieldTicketRepository;
 
     public MobileDeliveryServiceImpl(FieldTicketRepository fieldTicketRepository) {
         this.fieldTicketRepository = fieldTicketRepository;
+
+        // mocks
+        fieldTickets = new ArrayList<>();
     }
 
     @Override
