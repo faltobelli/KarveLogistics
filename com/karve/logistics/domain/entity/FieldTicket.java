@@ -30,6 +30,8 @@ public class FieldTicket implements Serializable {
 
     private String price;
 
+    private String siteInstructions;
+
     @ManyToOne
     @JoinColumn(name = "clientId")
     private Client client;
@@ -104,7 +106,15 @@ public class FieldTicket implements Serializable {
         this.client = client;
     }
 
-/*
+    public String getSiteInstructions() {
+        return siteInstructions;
+    }
+
+    public void setSiteInstructions(String siteInstructions) {
+        this.siteInstructions = siteInstructions;
+    }
+
+    /*
     public ServiceType getServiceType() {
         return serviceType;
     }

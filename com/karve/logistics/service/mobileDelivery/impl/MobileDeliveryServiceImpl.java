@@ -3,6 +3,7 @@ package com.karve.logistics.service.mobileDelivery.impl;
 import com.karve.logistics.domain.entity.Client;
 import com.karve.logistics.domain.entity.FieldTicket;
 import com.karve.logistics.domain.entity.Route;
+import com.karve.logistics.repository.mobileDelivery.face.ClientRepository;
 import com.karve.logistics.repository.mobileDelivery.face.FieldTicketRepository;
 import com.karve.logistics.service.mobileDelivery.face.MobileDeliveryService;
 import org.springframework.stereotype.Service;
@@ -14,22 +15,25 @@ import java.util.List;
 @Service
 public class MobileDeliveryServiceImpl implements MobileDeliveryService {
 
-    // mocks
-    private List<FieldTicket> fieldTickets;
-
     private FieldTicketRepository fieldTicketRepository;
+    private ClientRepository clientRepository;
 
-    public MobileDeliveryServiceImpl(FieldTicketRepository fieldTicketRepository) {
+    public MobileDeliveryServiceImpl(FieldTicketRepository fieldTicketRepository,
+                                     ClientRepository clientRepository) {
         this.fieldTicketRepository = fieldTicketRepository;
-
-        // mocks
-        fieldTickets = new ArrayList<>();
+        this.clientRepository = clientRepository;
     }
 
     @Override
     public FieldTicket getFieldTicketDetail(int fieldTicketNum) {
         FieldTicket fieldTicket = new FieldTicket();
         fieldTicket.setActualDeleveryTime(new Date());
+        fieldTicket.setTicketName(String.format("This Ticket: %s", fieldTicketNum));
+        fieldTicket.setTicketId(234L);
+        fieldTicket.setEstDileveryTime(new Date());
+        fieldTicket.setPrice("$378 for disposal");
+        fieldTicket.setProduct("Gun barrel water 130bls");
+        fieldTicket.setSiteInstructions("Get this stuff out of here!!!");
 
         Client client = new Client();
         client.setDescription("this is a real client");
@@ -43,6 +47,14 @@ public class MobileDeliveryServiceImpl implements MobileDeliveryService {
 
     @Override
     public List<FieldTicket> getFieldTickets(Long userId) {
+
+/*
+        Client client = new Client();
+        client.setDescription("this is a real client");
+        client.setClientId(1L); client.setName("Challenger");
+*/
+
+
         List<FieldTicket> fieldTickets = new ArrayList<>();
 
         FieldTicket fieldTicket = new FieldTicket();

@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "userwork")
-public class userWork implements Serializable {
+public class UserWork implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userWorkId;
