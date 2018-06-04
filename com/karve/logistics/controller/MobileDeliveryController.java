@@ -27,10 +27,10 @@ public class MobileDeliveryController {
     // **********************************
     // Field Ticket
     @GetMapping("/fieldticketDetail")
-    public String getFieldTicketDetail(@RequestParam(name = "ticketId", required = true) int fieldTicketId,
+    public String getFieldTicketDetail(@RequestParam(name = "ticketid", required = true) int fieldTicketId,
                                     Model model) {
 
-        model.addAttribute(mobileDeliveryService.getFieldTicketDetail(fieldTicketId));
+        model.addAttribute("ticketInfo", mobileDeliveryService.getFieldTicketDetail(fieldTicketId));
 
         return "mdFieldTicketDetail";
     }
