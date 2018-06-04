@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @CrossOrigin
 @RequestMapping("/md")
 @Controller
@@ -64,6 +67,11 @@ public class MobileDeliveryController {
         this.userId = userId;
 
         model.addAttribute("userId", userId);
+
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        model.addAttribute("date", date);
 
         model.addAttribute(mobileDeliveryService.getRoutes(new Long(userId)));
 
