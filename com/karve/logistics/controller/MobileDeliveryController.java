@@ -12,11 +12,16 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MobileDeliveryController {
 
+    // Mock
+    private Integer userId;
+
     private MobileDeliveryService mobileDeliveryService;
 
     @Autowired
     public MobileDeliveryController(MobileDeliveryService mobileDeliveryService) {
         this.mobileDeliveryService = mobileDeliveryService;
+
+        userId = 1;
     }
 
     @GetMapping("/")
@@ -30,14 +35,17 @@ public class MobileDeliveryController {
     public String getFieldTicketDetail(@RequestParam(name = "ticketid", required = true) int fieldTicketId,
                                     Model model) {
 
+        model.addAttribute("userId", userId);
         model.addAttribute("ticketInfo", mobileDeliveryService.getFieldTicketDetail(fieldTicketId));
 
         return "mdFieldTicketDetail";
     }
 
     @GetMapping("/fieldtickets")
-    public String getMobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId,
-                                        Model model) {
+    public String getMobileDelieveryTickets(@RequestParam(name = "userId", required = true) int userId, Model model) {
+
+        this.userId = userId;
+
         String name = "Billy Bob";
         model.addAttribute("name", name);
         model.addAttribute("userId", userId);
@@ -51,8 +59,10 @@ public class MobileDeliveryController {
     // **********************************
     // Route for the day (Searchable)
     @GetMapping("/routes")
-    public String getRoutes(@RequestParam(name = "userId", required = true) int userId,
-                           Model model) {
+    public String getRoutes(@RequestParam(name = "userId", required = true) int userId, Model model) {
+
+        this.userId = userId;
+
         model.addAttribute("userId", userId);
 
         model.addAttribute(mobileDeliveryService.getRoutes(new Long(userId)));
@@ -61,9 +71,8 @@ public class MobileDeliveryController {
     }
 
     @GetMapping("/routedetail")
-    public String getRoutesDetail(@RequestParam(name = "userId", required = true) int userId,
-                                 @RequestParam(name="routeId", required=true) int routeId,
-                                 Model model) {
+    public String getRoutesDetail(@RequestParam(name="routeId", required=true) int routeId, Model model) {
+
         model.addAttribute("userId", userId);
         model.addAttribute("routeId", routeId);
 
@@ -76,8 +85,10 @@ public class MobileDeliveryController {
     // GPS Routing
     @GetMapping("/maproute")
     public String getMapRoute(@RequestParam(name = "userId", required = true) int userId,
-                                 @RequestParam(name="routeId", required=true) int routeId,
+                                 @RequestParam(name="routeId", required=false, defaultValue = "0") int routeId,
                                  Model model) {
+
+        this.userId = userId;
         model.addAttribute("userId", userId);
         model.addAttribute("routeId", routeId);
 
