@@ -75,7 +75,8 @@ public class MobileDeliveryController {
 
         model.addAttribute(mobileDeliveryService.getRoutes(new Long(userId)));
 
-        return "mdRoutes";
+        return "routes";
+//        return "mdRoutes";
     }
 
     @GetMapping("/routedetail")
